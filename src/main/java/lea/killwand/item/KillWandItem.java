@@ -3,6 +3,7 @@ package lea.killwand.item;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,13 +33,16 @@ public class KillWandItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient()) {
-            for (Entity entity : ((ServerWorld) world).iterateEntities()) {
-                if (!(entity == null)) {
+            Integer i = 0;
+            for (Entity entity : ((ServerWorld) world).iterateEntities() ) {
+                if (entity != null) {
                     if (!(entity instanceof PlayerEntity)) {
                         entity.kill();
+                        i++;
                     }
                 }
             }
+            user.sendMessage(Text.literal("Killed " + i + " entities"));
         }
         return super.use(world, user, hand);
     }
