@@ -1,0 +1,5 @@
+{
+  "item.killwand.kill_wand": "Kill Wand",
+  "item.killwand.kill_wand.tooltip": "A wand to kill every entity expect players.",
+  "itemGroup.killwand.killwand": "Kill Wand"
+}

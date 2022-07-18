@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "killwand",
+  "version": "${version}",
+  "name": "killwand",
+  "description": "A mod to kill every entity except players using an item",
+  "authors": [
+    "lea_88"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/killwand/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "lea.killwand.client.KillwandClient"
+    ],
+    "main": [
+      "lea.killwand.Killwand"
+    ]
+  },
+  "mixins": [
+    "killwand.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}
